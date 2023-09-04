@@ -1,0 +1,104 @@
+var lux = {
+  nome: "Lux",
+  kill: 0,
+  vitoria: 0,
+  empate: 0,
+  derrota: 0,
+  pdl: 0
+};
+var garen = {
+  nome: "Garen",
+  kill: 0,
+  vitoria: 0,
+  empate: 0,
+  derrota: 0,
+  pdl: 0
+};
+var ashe = {
+  nome: "Ashe",
+  kill: 0,
+  vitoria: 0,
+  empate: 0,
+  derrota: 0,
+  pdl: 0
+};
+var teemo = {
+  nome: "Teemo",
+  kill: 0,
+  vitoria: 0,
+  empate: 0,
+  derrota: 0,
+  pdl: 0
+};
+var elementoTabela = document.getElementById("tabelaJogadores");
+exibirNaTela();
+function exibirNaTela() {
+  elementoTabela.innerHTML = `
+<tr>
+        <td>${lux.nome}</td>
+        <td>${lux.kill}</td>
+        <td>${lux.vitoria}</td>
+        <td>${lux.empate}</td>
+        <td>${lux.derrota}</td>
+        <td>${lux.pdl}</td>
+         <td><button onClick="adicionarKill(lux)">kill</button></td>
+        <td><button onClick="adicionarVitoria(lux)">Vitória</button></td>
+        <td><button onClick="adicionarEmpate(lux)">Empate</button></td>
+        <td><button onClick="adicionarDerrota(lux)">Derrota</button></td>
+      </tr>
+  <tr>
+        <td>${garen.nome}</td>
+        <td>${garen.kill}</td>
+        <td>${garen.vitoria}</td>
+        <td>${garen.empate}</td>
+        <td>${garen.derrota}</td>
+        <td>${garen.pdl}</td>
+        <td><button onClick="adicionarKill(garen)">kill</button></td>
+        <td><button onClick="adicionarVitoria(garen)">Vitória</button></td>
+        <td><button onClick="adicionarEmpate(garen)">Empate</button></td>
+        <td><button onClick="adicionarDerrota(garen)">Derrota</button></td>
+      </tr>
+      <tr>
+        <td>${ashe.nome}</td>
+        <td>${ashe.kill}</td>
+        <td>${ashe.vitoria}</td>
+        <td>${ashe.empate}</td>
+        <td>${ashe.derrota}</td>
+        <td>${ashe.pdl}</td>
+        <td><button onClick="adicionarKill(ashe)">kill</button></td>
+        <td><button onClick="adicionarVitoria(ashe)">Vitória</button></td>
+        <td><button onClick="adicionarEmpate(ashe)">Empate</button></td>
+        <td><button onClick="adicionarDerrota(ashe)">Derrota</button></td>
+      </tr>
+      <tr>
+        <td>${teemo.nome}</td>
+        <td>${teemo.kill}</td>
+        <td>${teemo.vitoria}</td>
+        <td>${teemo.empate}</td>
+        <td>${teemo.derrota}</td>
+        <td>${teemo.pdl}</td>
+        <td><button onClick="adicionarKill(teemo)">kill</button></td>
+        <td><button onClick="adicionarVitoria(teemo)">Vitória</button></td>
+        <td><button onClick="adicionarEmpate(teemo)">Empate</button></td>
+        <td><button onClick="adicionarDerrota(teemo)">Derrota</button></td>
+      </tr>
+`;
+}
+function adicionarKill(jogador) {
+  jogador.kill = jogador.kill + 5;
+  exibirNaTela();
+}
+function adicionarVitoria(jogador) {
+  jogador.vitoria++;
+  jogador.pdl = jogador.pdl + 15 + jogador.kill * 3;
+  exibirNaTela();
+}
+function adicionarEmpate(jogador) {
+  jogador.empate++;
+  jogador.pdl++;
+  exibirNaTela();
+}
+function adicionarDerrota(jogador) {
+  jogador.derrotas++;
+  exibirNaTela();
+}
